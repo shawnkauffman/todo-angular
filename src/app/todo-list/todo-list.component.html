@@ -1,0 +1,14 @@
+<p>Tasks: {{ count }}</p>
+<input #newTask
+(keyup.enter)="onAddItem(newTask.value)">
+
+<button type="button" (click)="onAddItem(newTask.value); newTask.value=''">Add Item</button>
+
+<button type="button" (click)="onClearAll()">Clear All</button>
+
+<ul>
+    <li *ngFor="let task of todos; let i=index">
+        {{task.name}}
+        <button type="button" (click)="onDeleteItem(i)">Delete</button>
+    </li>
+</ul>
